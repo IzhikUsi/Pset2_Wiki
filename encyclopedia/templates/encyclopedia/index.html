@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Вики
+{% endblock %}
+
+{% block body %}
+
+    {% if search %}
+        <h3>Результаты по запросу "{{ query }}":</h3>
+    {% else %} 
+        <h1>Все статьи</h1>
+    {% endif %}
+
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href = "{% url 'entry' entry %}">{{ entry }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

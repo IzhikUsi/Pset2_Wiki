@@ -1,0 +1,11 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Статья "{{ entryTitle }}" не найдена.
+{% endblock %}
+
+{% block body %}
+    <h3>Статья с именем <b>«‎{{ entryTitle }}»‎</b> не найдена.</h3><br>
+    <h5>Вы можете создать ее</h5>
+    <a class="btn btn-outline-secondary" href="/wiki/{{ entryTitle }}/edit" role="button">Создать</a>
+{% endblock %}

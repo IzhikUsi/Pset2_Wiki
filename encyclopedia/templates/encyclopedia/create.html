@@ -1,0 +1,37 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {% if edit%}
+        Редактировать статью «{{ entryTitle }}»
+    {% else %}
+        Создать новую статью
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+{% if exist%}
+    <div class="alert alert-danger" role="alert">
+        Эта статья уже существует. Если хотите редактировать ее - <a href="{% url 'entry' entry %}" class="alert-link"><b>Нажми Сюда</b></a>" 
+    </div>
+{% endif %}
+
+<div>
+    {% if edit%}
+        <h2>Редактировать статью «{{ entryTitle }}»</h2>
+    {% else %}
+        <h2>Создать новую статью</h2>
+    {% endif %}
+    <h4>(используя Markdown)</h4>
+
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+
+        {{ form.as_table }}
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a class="btn btn-outline-secondary" href="{% url 'index' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
