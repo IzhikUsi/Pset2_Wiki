@@ -9,11 +9,11 @@
 {% endblock %}
 
 {% block body %}
-{% if exist%}
-    <div class="alert alert-danger" role="alert">
-        Эта статья уже существует. Если хотите редактировать ее - <a href="{% url 'entry' entry %}" class="alert-link"><b>Нажми Сюда</b></a>" 
-    </div>
-{% endif %}
+    {% if exist%}
+        <div class="alert alert-danger" role="alert">
+            Эта статья уже существует. Если хотите редактировать ее - <a href="{% url 'entry' entry %}" class="alert-link"><b>Нажми Сюда</b></a>" 
+        </div>
+    {% endif %}
 
 <div>
     {% if edit%}
